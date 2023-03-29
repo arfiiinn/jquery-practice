@@ -1,0 +1,34 @@
+.form-body{
+    margin: 2% 25%;
+}
+
+.error{
+    color: red;
+}
+
+.my-modal{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 250px;
+    background-color: #f1f1f1;
+    padding: 10px;
+    z-index: 100;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.heading{
+    border-bottom: 0.5px solid rgb(191, 191, 191)
+}
+
+.content{
+    margin:2%;
+}
+
+.footer{
+text-align:center;
+
+}

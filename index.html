@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+
+  <!-- SIGNUP FORM -->
+    <form>
+      <div class="form-body">
+        <div class="alert" role="alert">
+        </div>
+        <center><h1 class="mb-4">Sign up here!</h1></center>
+        <div class="row">
+          <div class="col-6 mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name">
+            <p class="error" id="nameerror"></p>
+          </div>
+          <div class="col-6 mb-3">
+            <label class="form-label">Age</label>
+            <input type="number" class="form-control" name="age" id="age" placeholder="Enter your age">
+            <p class="error" id="ageerror"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label class="form-label">Gender</label>
+            <select id="Gender" class="form-select">
+              <option selected value="" disabled>--Select Gender--</option>
+              <option name="Male" id="Male" value="Male" > Male </option>
+              <option name="Female" id="Female" value="Female" > Female </option>
+              <option name="Other" id="Other" value="Other" > Other </option>
+            </select>
+            <p class="error" id="degreeerror"></p>
+          </div>
+          <div class="col-6">
+            <label class="form-label">Mode of Work</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="workMode" id="wfo" value="wfo">
+              <label class="form-check-label">
+                Work from Office
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="workMode" id="wfh" value="wfh">
+              <label class="form-check-label">
+                Work from Home
+              </label>
+            </div>
+            <p class="error" id="modeerror"></p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Languages</label>&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <input class="form-check-input" type="checkbox" name="languages" id="lang-1" value="English">
+            &nbsp;<label class="form-check-label">
+              English
+            </label>
+         
+            <input class="form-check-input" type="checkbox" name="languages" id="lang-2" value="Hindi">
+            &nbsp;<label class="form-check-label">
+              Hindi
+            </label>
+         
+            <input class="form-check-input" type="checkbox" name="languages" id="lang-3" value="French">
+            &nbsp;<label class="form-check-label">
+              French
+            </label>
+          
+          <p class="error" id="langerror"></p>
+        </div>
+        <div class="row">
+          <div class="col-6 mb-3">
+            <label class="form-label">Date of Birth</label>
+            <input type="date" name="DOB" id="DOB" class="form-control" min="">
+            <p class="error" id="doberror"></p>
+          </div>
+          <div class="col-6 mb-3">
+            <label class="form-label">Date of Joining</label>
+            <input type="date" name="DOJ" id="DOJ" class="form-control">
+            <p class="error" id="dojerror"></p>
+          </div>
+        </div>
+        <center>
+          <button type="submit" class="signup btn btn-primary">Sign up</button>
+        </center>
+      </div>
+    </form>
+
+    <!-- MODAL -->
+    <div class="my-modal">
+      <div class="heading mt-2">
+       <h5>&nbsp; Confirm Details</h5> 
+      </div>
+      <div class="content">
+      </div>
+      <div class="footer">
+        <button id="edit" class="btn btn-secondary me-2">Edit</button>
+        <button id="submit" class="btn btn-success">Submit</button>
+      </div>
+    </div>
+    </div>
+
+  <!-- jQuery code-->
+  <script src="js/script.js"></script>
+  <!-- jQuery code-->
+  
+</body>
+</html>
