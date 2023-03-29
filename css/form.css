@@ -99,3 +99,10 @@ span:hover{
     margin:-40px;
 }
 
+.page-item.active .page-link {
+    background-color: #FFF !important;
+    text-decoration: none;
+}
+.page-link {
+    color: black !important;
+}

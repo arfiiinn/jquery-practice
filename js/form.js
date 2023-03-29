@@ -2,6 +2,13 @@ $(document).ready(function () {
     addModalToggle();
     editModalToggle();
     displayUsersList(UsersList);
+    $('.table').DataTable({
+        lengthChange: false,
+        pageLength:5,
+        ordering: false,
+        info: false,
+        searching: false
+    });
 
     $("#add-user").click(function(event){
         event.preventDefault();
@@ -361,5 +368,3 @@ const editModalToggle = () => {
 
 const editIcon = `<span id="edit" class="material-symbols-outlined me-2">edit</span>`;
 const deleteIcon = `<span class="material-symbols-outlined text-danger delete" data-bs-toggle="modal" data-bs-target="#delete-modal">delete</span>`;
-
-
