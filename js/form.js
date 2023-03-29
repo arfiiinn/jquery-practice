@@ -1,8 +1,8 @@
 $(document).ready(function () {
-    
-    displayUsersList(UsersList);
     addModalToggle();
-    
+    editModalToggle();
+    displayUsersList(UsersList);
+
     $("#add-user").click(function(event){
         event.preventDefault();
         validateUser();
@@ -14,6 +14,7 @@ $(document).ready(function () {
 
     $("#add").click(()=> addModalToggle());
     $("#close-addModal").click(()=> addModalToggle());
+    $("#close-editModal").click(()=> editModalToggle());
 
     $(".data-table-body").on("click", ".delete",((event)=>{
         var id = $(event.target).closest('tr').attr("id");
@@ -27,6 +28,7 @@ $(document).ready(function () {
 
     $(".data-table-body").on("click", "#edit",((event)=>{
         var id = $(event.target).closest('tr').attr("id");
+        editModalToggle();
         getUserbyId(id);
         $("#edit-user").click((event)=>{
             event.preventDefault();
@@ -37,6 +39,46 @@ $(document).ready(function () {
             });
         });    
     }));
+
+});
+
+$(".filter-gender").on('change',function (event) { 
+    var gender = event.target.value;
+    console.log(gender);
+
+    $(".data-table-body tr").filter(function () { 
+        if(gender === "") {
+            $(".data-table-body tr").show();
+        } else {
+            $(".data-table-body tr").hide();
+            $(".data-table-body tr td:nth-child(4):contains(" + gender +")").parent().show();
+        }
+    }); 
+
+    // if(gender === ""){
+    //     displayUsersList(UsersList);
+    // }
+    // else{
+    //     let filteredByGenderUser = UsersList.filter(user => user.gender === gender);
+    //     console.log(filteredByGenderUser);
+    //     displayUsersList(filteredByGenderUser);
+    // }
+});
+
+$("#search-text").on('input', (event) =>{
+    event.preventDefault();
+    let searchText = $("#search-text").val();
+    console.log(searchText);
+
+    $(".data-table-body tr").filter(function () { 
+        if(searchText === "") {
+            $(".data-table-body tr").show();
+        } else {
+            $(".data-table-body tr").hide();
+            $(".data-table-body tr td:nth-child(1):contains(" + searchText +")").parent().show();
+            $(".data-table-body tr td:nth-child(2):contains(" + searchText +")").parent().show();
+        }
+    }); 
 
 });
 
@@ -202,7 +244,7 @@ const validateEditedUser = (id) => {
         checks ++;
     }
     if(hasNumber.test(user.lastName)){
-        $("#lnameerror").html("First name cannot contain numbers");
+        $("#lnameerror").html("Last name cannot contain numbers");
         checks ++;
     }
 
@@ -237,10 +279,11 @@ const validateEditedUser = (id) => {
     }
     else{
        $(".alert").addClass("alert-success").html("Success!").css("margin","3%");
+       editModalToggle();
        UsersList[id] = user;
        displayUsersList(UsersList);
        setTimeout(()=>{
-        $(".alert").remove();
+        $(".alert").hide();
        }, 3000);
     }   
 }
@@ -298,18 +341,22 @@ const validateUser = () => {
        
     }
     else{
-       $(".alert").addClass("alert-success").html("Success!").css("margin","3%");
+       $(".alert").addClass("alert-success").html("Success!").css("margin","3%").show();
        UsersList.push(user);
        addModalToggle();
        displayUsersList(UsersList);
        setTimeout(()=>{
-        $(".alert").remove();
+        $(".alert").hide();
        }, 3000);
     }   
 }
 
 const addModalToggle = () => {
     $(".add-modal").toggle();
+}
+
+const editModalToggle = () => {
+    $(".edit-modal").toggle();
 }
 
 const editIcon = `<span id="edit" class="material-symbols-outlined me-2">edit</span>`;

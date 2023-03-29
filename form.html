@@ -12,6 +12,8 @@
 </head>
 <body>
     <div class="data-heading">
+      <div class="alert" role="alert">
+      </div>
       <span class="d-flex justify-content-center">
         <h3>Users</h3>
         <button id="add" class="material-symbols-outlined mb-1">add_circle</button>
@@ -88,10 +90,10 @@
     
     <!-- EDIT MODAL -->
     <div id="modal-edit" class="edit-modal">
-      <div class="modal-content">
+      <div class="edit-modal-content">
         <div class="d-flex add-head">
           <h4 class="flex-grow-1">Edit User</h4>
-          <span id="close-addModal" class="material-symbols-outlined">
+          <span id="close-editModal" class="material-symbols-outlined">
             close
           </span>
         </div>
@@ -135,6 +137,21 @@
       </div>
     </div>
 
+    <!-- FILTERS FOR DATA TABLE-->
+    <div class="d-flex justify-content-start ms-4" style="margin-right: 0px;">
+    <!-- SEARCH BAR-->
+          <input type="text" class="form-control" name="search-text" id="search-text" placeholder="Search by First name or Last Name">
+          <button id="search-btn" class="material-symbols-outlined me-5">search</button>
+    <!-- GENDER DROPDOWN -->
+  
+      <select id="Gender" class="filter-gender form-select w-25 me-4">
+        <option selected value="">--Select Gender--</option>
+        <option name="Male" id="Male" value="Male" > Male </option>
+        <option name="Female" id="Female" value="Female" > Female </option>
+        <option name="Other" id="Other" value="Other" > Other </option>
+      </select>
+
+    </div>
     <!-- DATA TABLE -->
     <div class="data-table">
     <table class="table">
