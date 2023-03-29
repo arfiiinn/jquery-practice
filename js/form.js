@@ -1,46 +1,7 @@
 $(document).ready(function () {
-
-
     addModalToggle();
     editModalToggle();
     displayUsersList(UsersList);
-
-    //Pagination
-    var table = $('#.data-table-body');
-    var rowsPerPage = 10;
-    var totalPages = Math.ceil(table.find('tbody tr').length / rowsPerPage);
-    
-    // display the first page of rows
-    displayRows(1);
-    
-    // create pagination links
-    for (var i = 1; i <= totalPages; i++) {
-      $('<a href="#"></a>')
-        .attr('data-page', i)
-        .text(i)
-        .appendTo('#pagination')
-        .on('click', function(e) {
-          e.preventDefault();
-          displayRows($(this).data('page'));
-        });
-    }
-    
-    function displayRows(pageNum) {
-      var start = (pageNum - 1) * rowsPerPage;
-      var end = start + rowsPerPage;
-      
-      // hide all rows
-      table.find('tbody tr').hide();
-      
-      // show the rows for the current page
-      table.find('tbody tr').slice(start, end).show();
-      
-      // highlight the current page link
-      $('#pagination a').removeClass('active');
-      $('#pagination a[data-page="' + pageNum + '"]').addClass('active');
-    }
-
-
 
     $("#add-user").click(function(event){
         event.preventDefault();
